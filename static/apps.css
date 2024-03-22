@@ -1,0 +1,67 @@
+:root {
+    --corDeFundo: #fff;
+    --corDoForm: #d5f8e5;
+    --corDasLetras: #000000;
+  }
+
+body{
+    background-color: var(--corDeFundo);
+    height: 100vh;
+    width: 100%;
+}
+.logout-btn{
+    float: right;
+    padding: 1rem;
+}
+.logout-btn button{
+    padding: 0.3rem;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+}
+.grupo-projetos{
+    background-color: var(--corDoForm);
+    display: flex;
+    height: 78vh;
+    width: 80%;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.2);
+    margin: 5rem auto;
+    border-radius: 2rem;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.projetos {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+}
+.grupo-projetos h1{
+    margin-bottom: 1rem;
+}
+.projetos-individuais{
+    width: 50vh;
+    height: 40vh;
+    background-color: #fff;
+    border-radius: 3rem;
+    padding: 1rem;
+    cursor:pointer;
+    text-align: center;
+    transition: transform 0.3s ease;
+
+}
+.projetos-individuais:hover{
+    transform: scale(1.1);
+}
+.projetos-individuais img{
+    width: 25%;
+}
+.projetos h3{
+    text-align: center;
+    margin: 1rem auto;
+}
+.projetos p{
+    text-align: justify;
+}

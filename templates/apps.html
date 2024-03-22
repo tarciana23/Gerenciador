@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciador</title>
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='styles.css') }}"
+  />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='apps.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logout-btn">
+          <button onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+      </div>
+  </header>
+    <section class="grupo-projetos">
+      <h1>Escolha a ferramenta !</h1>
+      <div class="projetos">
+          <div class="projetos-individuais">
+           
+              <img src="{{url_for('static', filename='img/analisadorplanilhas.png')}}"/>
+              <h3>Analisador de Planilhas</h3>
+              <p> Essa ferramenta é composta por 4 apps em que vc pode fazer fórmulas,modificar planilhas, detectar erros e unificar planilhas.</p>
+            
+          </div>
+          <div class="projetos-individuais">
+              <img src="{{url_for('static', filename='img/estadonutricional.png')}}"/>
+              <h3>Estado nutrional</h3>
+              <p>Nessa ferramenta é possível calcular o estado nutricional de crianças</p>
+            
+          </div>
+      </div>
+    </section>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>
+  <script>
+      function logout() {
+          fetch('/logout', {
+              method: 'POST',
+          })
+          .then(response => {
+              if (response.ok) {
+                  window.location.href = '/'; // Redirecionar para a página de login após logout
+              } else {
+                  console.error('Erro ao fazer logout');
+              }
+          })
+          .catch(error => console.error('Erro ao fazer logout:', error));
+      }
+  </script>
+</html>

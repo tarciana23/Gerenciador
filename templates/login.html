@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciador</title>
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='styles.css') }}"
+  />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='login.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container-body">
+      <div class="formulario-container">
+        <img
+        src="{{url_for('static', filename='img/6325230.jpg')}}"
+        class="enfeite1"
+      />
+        <form onsubmit="loginUsuario(event)">
+          <div class="formulario">
+            <h1>Bem vindo aos apps </h1>
+            <div class="inputs">
+                <!--<label for="email">Digite seu Login</label> <br />--> 
+                <i class="fa-solid fa-envelope input-icon"></i>
+                <input class="input-email" type="email" name="email" id="email" placeholder="Digite seu Login"/>
+            </div>
+            <div class="inputs">
+                <i class="fa-solid fa-key"></i>
+              <!--<label for="password">Digite sua senha</label> <br />-->
+              <input
+                class="input-pwd"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Digite sua senha"
+              />
+            </div>
+            <div>
+              <button class="login-button" type="submit">LOGIN</button>
+            </div>
+            <p>Don’t have an account?<a href="/">Register</a> </p>
+            <a href="/cadastroTurmas" class="botaoCadastroTurmas">Cadastre uma nova turma!</a>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script>
+    function loginUsuario(event) {
+      event.preventDefault();
+
+      // Obter os valores dos campos de entrada
+      let login = document.getElementById("email").value;
+      let senha = document.getElementById("password").value;
+
+      // Criar um novo objeto FormData
+      let formData = new FormData();
+
+      // Adicionar os dados do formulário ao objeto FormData
+      formData.append("email", login);
+      formData.append("password", senha);
+      console.log(formData)
+        fetch('/login', {
+            method: "POST",
+            body: formData
+
+        })
+        .then((response)=>response.json())
+        .then((data)=>{
+            if(data.resultado === 'Login efetuado com sucesso'){
+                window.location.href = '/apps';
+            }else{
+              alert("Email não cadastrado!")
+            }
+        })
+        .catch(error=>console.error('Erro:', error))
+    }
+  </script>
+</html>

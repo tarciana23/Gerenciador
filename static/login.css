@@ -1,0 +1,85 @@
+:root {
+  --corDeFundo: #fff;
+  --corDoForm: #d5f8e5;
+  --corDasLetras: #000000;
+}
+
+.formulario-container {
+  background-color: var(--corDeFundo);
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 3rem;
+}
+.formulario-container img {
+  width: 40%;
+}
+.formulario-container form {
+  background-color: var(--corDoForm);
+  display: flex;
+  height: 90vh;
+  border-radius: 1rem;
+  width: 40vw;
+  align-items: center;
+  justify-content: center;
+}
+.formulario {
+  text-align: center;
+  width: 90%;
+  padding: 2rem;
+}
+.formulario h1 {
+  color: var(--corDasLetras);
+  margin-bottom: 1rem;
+}
+.formulario p {
+  margin-top: 2rem;
+  color: var(--corDasLetras);
+}
+.inputs {
+  position: relative;
+}
+.fa-solid {
+  position: absolute;
+  z-index: 1;
+  bottom: 27px;
+  left: 142px;
+}
+.input-email,
+.input-pwd {
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  background-color: var(--corDeFundo);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  color: var(--corDasLetras);
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: var(--corDasLetras);
+  color: var(--corDeFundo);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: var(--corDoForm);
+  color: var(--corDasLetras);
+}
+
+/* Estilo para a imagem decorativa */
+.enfeite3 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0.3; /* Opacidade ajustável conforme necessário */
+}
